@@ -26,4 +26,19 @@ public class EmployeeService {
         }
     }
 
+    public String updateEmployee(Employee employee) {
+        if(employeeRepository.existsById(employee.getId())) {
+            employeeRepository.save(employee);
+            return "employee data updated successfully.";
+        }
+        else {
+            return "Can't update Data. Id doesn't exists.";
+        }
+    }
+
+    public String deleteEmployee(String id) {
+        employeeRepository.deleteById(id);
+        return "employee record deleted successfully";
+    }
+
 }
