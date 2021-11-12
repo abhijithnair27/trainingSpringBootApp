@@ -14,6 +14,10 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @GetMapping("/")
+    public String heelo() {
+        return "Welcome User!";
+    }
     @GetMapping("/employee")
     public List<Employee> getEmployees() {
         List<Employee> employeeList = employeeService.getEmployees();
